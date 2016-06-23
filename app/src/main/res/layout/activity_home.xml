@@ -9,8 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.walmart.apps.video360app.HomeActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:onClick="guestLogin"
+        android:text="@string/home_label"
+        android:id="@+id/btnToHome" />
+
 </RelativeLayout>

@@ -11,11 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.walmart.apps.Video360App.EndlessScrollListener;
-import com.walmart.apps.Video360App.R;
-import com.walmart.apps.Video360App.VideoActivity;
-import com.walmart.apps.Video360App.models.Video;
-import com.walmart.apps.Video360App.models.VideoAdapter;
+import com.walmart.apps.video360app.EndlessScrollListener;
+import com.walmart.apps.video360app.R;
+import com.walmart.apps.video360app.VideoActivity;
+import com.walmart.apps.video360app.models.Video;
+import com.walmart.apps.video360app.models.VideoAdapter;
 
 import java.util.List;
 
@@ -99,11 +99,11 @@ public abstract class BaseFragement extends Fragment {
     }
 
     public void addAll(List<Video> videos){
-//        aVideos.addAll(videos);
+
+        // add code here.
     }
 
     public void clearAndAddAll(List<Video> videos){
-//        aTweets.clear();
-//        aTweets.addAll(tweets);
+        // add code here.
     }
 }

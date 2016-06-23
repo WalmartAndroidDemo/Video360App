@@ -1,5 +1,6 @@
 package com.walmart.apps.video360app.models;
 
+
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.walmart.apps.Video360App.R;
+import com.walmart.apps.video360app.R;
 
 import java.util.List;
 
@@ -27,14 +28,11 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.MyViewHolder
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvName, tvUserName, tvBody, tvTime;
 
         public MyViewHolder(View view) {
             super(view);
-            tvName = (TextView) view.findViewById(R.id.tvName);
-            tvUserName = (TextView) view.findViewById(R.id.tvUserName);
-            tvBody = (TextView) view.findViewById(R.id.tvBody);
-            tvTime = (TextView) view.findViewById(R.id.tvTime);
+
+            // add code here
         }
     }
 
@@ -53,8 +51,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.MyViewHolder
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         Video video = videos.get(position);
-        holder.tvBody.setText(video.getBody());
-        holder.tvTime.setText(video.getTimeFrom());
+
+        // add code here
     }
 
     @Override
