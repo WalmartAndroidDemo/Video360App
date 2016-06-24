@@ -10,7 +10,7 @@ public class EntertainmentFragement extends BaseFragement{
 
 
     @Override
-    protected void populateVideos(int page) {
+    public void populateVideos(int page) {
 
     }
 

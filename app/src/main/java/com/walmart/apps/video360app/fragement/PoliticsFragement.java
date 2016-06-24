@@ -11,7 +11,7 @@ public class PoliticsFragement extends BaseFragement{
 //    private String screen_name;
 
     @Override
-    protected void populateVideos(int page) {
+    public void populateVideos(int page) {
 
     }
 

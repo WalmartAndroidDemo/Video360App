@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 public class NewsFragement extends BaseFragement {
 
     @Override
-    protected void populateVideos(int page) {
+    public void populateVideos(int page) {
 
     }
 

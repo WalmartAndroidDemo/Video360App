@@ -1,101 +1,132 @@
 package com.walmart.apps.video360app.fragement;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import com.walmart.apps.video360app.EndlessScrollListener;
 import com.walmart.apps.video360app.R;
-import com.walmart.apps.video360app.VideoActivity;
 import com.walmart.apps.video360app.models.Video;
 import com.walmart.apps.video360app.models.VideoAdapter;
+import com.walmart.apps.video360app.util.CommonUtils;
+import com.walmart.apps.video360app.view.DividerItemDecoration;
 
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by ssahu6 on 6/22/16.
  */
 public abstract class BaseFragement extends Fragment {
 
+    private String mTimeline;
+    private String movieId;
 
     private static int pageScollCount = 0;
-    private ListView lvVideos;
-    private VideoAdapter aVideos;
+    @Bind(R.id.lvVideos)
+    public RecyclerView lvVideos;
 
+    public VideoAdapter videoAdapter;
+    @Bind(R.id.swipeContainer)
+    SwipeRefreshLayout swipeContainer;
 
+    private OnMovieTimelineFragmentInteractionListener mListener;
+    private Activity mActivity;
+    public abstract void populateVideos(int page);
 
-    protected abstract void populateVideos(int page);
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mActivity = (Activity) context;
+        if (context instanceof OnMovieTimelineFragmentInteractionListener) {
+            mListener = (OnMovieTimelineFragmentInteractionListener) context;
+        } else {
+          //  throw new RuntimeException(context.toString()+ " must implement OnTimelineFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+        mActivity = null;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null) {
+            if (getArguments().containsKey(CommonUtils.TIMELINE_ARG)) {
+                mTimeline = getArguments().getString(CommonUtils.TIMELINE_ARG).toLowerCase();
+            }
+            if (getArguments().containsKey(CommonUtils.MOVIE_ID_ARG)) {
+                movieId = getArguments().getString(CommonUtils.MOVIE_ID_ARG);
+            }
+        }
+    }
+
 
     // inflation logic
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragement_video_list, parent, false);
-        lvVideos = (ListView) v.findViewById(R.id.lvVideos);
+        View view = inflater.inflate(R.layout.fragement_video_list, parent, false);
+        ButterKnife.bind(this, view);
+        return view;
+    }
 
-        final ListAdapter aTweets = null;
-        lvVideos.setAdapter(aTweets);
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+        videoAdapter = new VideoAdapter(CommonUtils.getDefaultMovies());
+        lvVideos.setAdapter(videoAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        lvVideos.setLayoutManager(linearLayoutManager);
+
+        lvVideos.addItemDecoration(new DividerItemDecoration((Context) mListener, DividerItemDecoration.VERTICAL_LIST));
 
         // Attach the listener to the AdapterView onCreate
-        lvVideos.setOnScrollListener(new EndlessScrollListener() {
+
+        lvVideos.addOnScrollListener(new EndlessScrollListener(linearLayoutManager) {
             @Override
-            public boolean onLoadMore(int page, int totalItemsCount) {
-                // Triggered only when new data needs to be appended to the list
-                // Add whatever code is needed to append new items to your AdapterView
-                if(page > pageScollCount) {
-
-                    //get another 10 pages.
-                    pageScollCount = pageScollCount+10;
-                    populateVideos(1);
-
-                }
-                // or customLoadMoreDataFromApi(totalItemsCount);
-                return true; // ONLY if more data is actually being loaded; false otherwise.
-            }
-
-            @Override
-            public int getFooterViewType() {
-                return 0;
-            }
-
-        });
-
-        lvVideos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override public void onItemClick(AdapterView adapterView, View view, int position, long val)
-            {
-                Video v = aVideos.getItem(position);
-                Bundle b = new Bundle();
-                Intent i = new Intent(getActivity(), VideoActivity.class);
-                i.putExtras(b);
-                startActivity(i);
-
-
-              //  Toast.makeText(getActivity(), "Stop Clicking me", Toast.LENGTH_SHORT).show();
+            public void onLoadMore() {
+               // Toast.makeText(this, "", Toast.LENGTH_LONG).show();
             }
         });
 
-        return v;
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+        });
+
+
     }
+
+
 
     // creating of lifecycle event
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        List<Video> videos = null;
-        aVideos = new VideoAdapter(getActivity(), videos);
-    }
+
+
+
+
 
     public VideoAdapter getAdapter(){
 
-        return aVideos;
+        return videoAdapter;
     }
 
     public void addAll(List<Video> videos){
@@ -103,7 +134,13 @@ public abstract class BaseFragement extends Fragment {
         // add code here.
     }
 
+
+
     public void clearAndAddAll(List<Video> videos){
         // add code here.
+    }
+
+    public interface OnMovieTimelineFragmentInteractionListener {
+
     }
 }
