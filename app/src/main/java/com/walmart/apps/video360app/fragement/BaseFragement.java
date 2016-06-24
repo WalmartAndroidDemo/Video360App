@@ -83,6 +83,9 @@ public abstract class BaseFragement extends Fragment {
 
         View view = inflater.inflate(R.layout.fragement_video_list, parent, false);
         ButterKnife.bind(this, view);
+
+        // setup the view adapter.
+
         return view;
     }
 

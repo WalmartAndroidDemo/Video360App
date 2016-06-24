@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="fenster-0.0.2">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.malmstein/fenster/0.0.2/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.malmstein/fenster/0.0.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.malmstein/fenster/0.0.2/b23953bb9208ba687614fb01968f1e2b0908d747/fenster-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -5,10 +5,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.walmart.apps.video360app.adapters.BaseFragmentPagerAdapter;
 import com.walmart.apps.video360app.adapters.SmartFragmentStatePagerAdapter;
 import com.walmart.apps.video360app.fragement.BaseFragement;
-import com.walmart.apps.video360app.fragement.HomeLandingFragement;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 public class LandingActivity extends AppCompatActivity implements BaseFragement.OnMovieTimelineFragmentInteractionListener{
     @Bind(R.id.viewpager)
     ViewPager viewpager;
-    @Bind(R.id.sliding_tabs)
+//    @Bind(R.id.sliding_tabs)
     TabLayout slidingTabs;
 
     private BaseFragmentPagerAdapter mBaseFragmentPagerAdapter;
@@ -34,23 +34,27 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
             setContentView(R.layout.activity_landing);
             ButterKnife.bind(this);
             mBaseFragmentPagerAdapter = new BaseFragmentPagerAdapter(getSupportFragmentManager(), LandingActivity.this);
-            mSmartFragmentStatePagerAdapter = mBaseFragmentPagerAdapter;
+//            mSmartFragmentStatePagerAdapter = mBaseFragmentPagerAdapter;
             viewpager.setAdapter(mBaseFragmentPagerAdapter);
-            slidingTabs.setupWithViewPager(viewpager);
+//            slidingTabs.setupWithViewPager(viewpager);
+
+            PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+            tabStrip.setViewPager(viewpager);
+
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        HomeLandingFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
-        if(timelineFragement != null){
-
-            timelineFragement.populateVideos(1);
-        }
-    }
+//    @Override
+//    public void onResume(){
+//        super.onResume();
+//        HomeLandingFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
+//        if(timelineFragement != null){
+//
+//            timelineFragement.populateVideos(1);
+//        }
+//    }
 
 }
