@@ -20,7 +20,9 @@
         android:text="About"
         android:id="@+id/tvAbout"
         android:maxLines="2"
-        android:layout_alignBottom="@+id/vvPreview"
-        android:padding="5dp" />
+        android:padding="5dp"
+        android:layout_below="@+id/vvPreview"
+        android:layout_alignRight="@+id/vvPreview"
+        android:layout_alignEnd="@+id/vvPreview" />
 
 </RelativeLayout>
