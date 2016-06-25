@@ -15,7 +15,7 @@ import com.walmart.apps.video360app.util.CommonUtils;
 /**
  * Created by ssahu6 on 6/22/16.
  */
-public class EntertainmentFragement extends BaseFragement{
+public class TrendingFragement extends BaseFragement {
 
     static final String TAG = HomeLandingFragement.class.getSimpleName();
 
@@ -24,7 +24,7 @@ public class EntertainmentFragement extends BaseFragement{
     public static Fragment newInstance() {
 
         if(fragment == null) {
-            fragment =  new EntertainmentFragement();
+            fragment =  new TrendingFragement();
         }
         return fragment;
 
@@ -38,7 +38,7 @@ public class EntertainmentFragement extends BaseFragement{
             Bundle args = new Bundle();
             args.putString(CommonUtils.TIMELINE_ARG, timeline);
             args.putString(CommonUtils.MOVIE_ID_ARG, movieId);
-            fragment = new EntertainmentFragement();
+            fragment = new TrendingFragement();
             fragment.setArguments(args);
         }
         return fragment;
