@@ -21,6 +21,8 @@ import org.parceler.Parcels;
 
 import java.io.IOException;
 
+import butterknife.Bind;
+
 /**
  * Created by ssahu6 on 6/23/16.
  */
@@ -67,14 +69,17 @@ public class VideoActivity extends AppCompatActivity {
     /**
      * The video view and its custom UI elements.
      */
+    @Bind(R.id.video_view)
     protected VrVideoView videoWidgetView;
 
     /**
      * Seeking UI & progress indicator. The seekBar's progress value represents milliseconds in the
      * video.
      */
-    private SeekBar seekBar;
-    private TextView statusText;
+    @Bind(R.id.seek_bar)
+    public SeekBar seekBar;
+    @Bind(R.id.status_text)
+    public TextView statusText;
 
     /**
      * By default, the video will start playing as soon as it is loaded. This can be changed by using
@@ -85,8 +90,7 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_video);
-
+        setContentView(R.layout.item_video_watch);
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
         statusText = (TextView) findViewById(R.id.status_text);
@@ -323,9 +327,11 @@ public class VideoActivity extends AppCompatActivity {
             try {
                 if (fileInformation == null || fileInformation.length < 1
                         || fileInformation[0] == null || fileInformation[0].first == null) {
-                    videoWidgetView.loadVideoFromAsset("congo.mp4");
+                    Log.d(TAG, "doInBackground: fileInformation == null ");
+                    videoWidgetView.loadVideoFromAsset("congo_2048.mp4");
 
                 } else {
+                    Log.d(TAG, "doInBackground: fileInformation != null "+ fileInformation[0]);
                     videoWidgetView.loadVideo(fileInformation[0].first, fileInformation[0].second);
                 }
             } catch (IOException e) {

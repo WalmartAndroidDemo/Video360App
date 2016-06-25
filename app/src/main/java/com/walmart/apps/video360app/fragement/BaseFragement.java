@@ -8,9 +8,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.walmart.apps.video360app.EndlessScrollListener;
 import com.walmart.apps.video360app.R;
@@ -31,7 +33,7 @@ public abstract class BaseFragement extends Fragment {
 
     private String mTimeline;
     private String movieId;
-
+    static final String TAG = BaseFragement.class.getSimpleName();
     private static int pageScollCount = 0;
     @Bind(R.id.lvVideos)
     public RecyclerView lvVideos;
@@ -42,6 +44,7 @@ public abstract class BaseFragement extends Fragment {
 
     private OnMovieTimelineFragmentInteractionListener mListener;
     private Activity mActivity;
+
     public abstract void populateVideos(int page);
 
     @Override
@@ -65,6 +68,7 @@ public abstract class BaseFragement extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate:Bunble  BaseFragement ");
         if(getArguments() != null) {
             if (getArguments().containsKey(CommonUtils.TIMELINE_ARG)) {
                 mTimeline = getArguments().getString(CommonUtils.TIMELINE_ARG).toLowerCase();
@@ -88,8 +92,11 @@ public abstract class BaseFragement extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
-        videoAdapter = new VideoAdapter(CommonUtils.getDefaultMovies());
+        Log.d(TAG, "onViewCreated: Base 11111111  !!!111111  ");
+        if(getAdapter()==null) {
+            Log.d(TAG, "onViewCreated: Base 11111111  !!!111111 getAdapter()==null ");
+            videoAdapter = new VideoAdapter(getContext(), CommonUtils.getDefaultMovies());
+        }
         lvVideos.setAdapter(videoAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         lvVideos.setLayoutManager(linearLayoutManager);
@@ -101,7 +108,7 @@ public abstract class BaseFragement extends Fragment {
         lvVideos.addOnScrollListener(new EndlessScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore() {
-               // Toast.makeText(this, "", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Load .....", Toast.LENGTH_LONG).show();
             }
         });
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.walmart.apps.video360app.adapters.BaseFragmentPagerAdapter;
 import com.walmart.apps.video360app.adapters.SmartFragmentStatePagerAdapter;
@@ -48,7 +49,7 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
         super.onResume();
         HomeLandingFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
         if(timelineFragement != null){
-
+            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
             timelineFragement.populateVideos(1);
         }
     }

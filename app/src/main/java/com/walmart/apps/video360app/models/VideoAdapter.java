@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.vr.sdk.widgets.video.VrVideoView;
 import com.walmart.apps.video360app.R;
@@ -32,13 +33,17 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private Context mContext;
     private final int MOVIE_VR = 0, MOVIE_YOUTUBE = 1;
     static final String TAG = VideoAdapter.class.getSimpleName();
+    private VrVideoView.Options videoOptions = new VrVideoView.Options();
+
 
     public VideoAdapter(FragmentActivity activity, List<Video> videos) {
+        this.mContext=activity;
+        this.videos=videos;
     }
 
     public VideoAdapter(Context lContext, List<Video> lvideos) {
-        mContext=lContext;
-        videos=lvideos;
+        this.mContext=lContext;
+        this.videos=lvideos;
     }
     public Video getItem(int position) {
         return videos.get(position);
@@ -60,25 +65,31 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public RecyclerView.ViewHolder  onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_video, parent, false);
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
         RecyclerView.ViewHolder viewHolder =null;
-        switch (viewType) {
-            case MOVIE_VR:
-                View videoVR = inflater.inflate(R.layout.item_video, parent, false);
-                viewHolder = new ViewHolderVrMovie(videoVR);
-                break;
+        try {
+            Log.d(TAG, "onCreateViewHolder: !!!!! 11111  viewType "+viewType);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_video, parent, false);
+            Context context = parent.getContext();
+            LayoutInflater inflater = LayoutInflater.from(context);
+            switch (viewType) {
+                case MOVIE_VR:
+                    View videoVR = inflater.inflate(R.layout.item_video, parent, false);
+                    viewHolder = new ViewHolderVrMovie(videoVR);
+                    Log.d(TAG, "onCreateViewHolder: MOVIE_VR viewHolder "+viewHolder);
+                    break;
 
-            case MOVIE_YOUTUBE:
-                Log.d(TAG, "onCreateViewHolder: MOVIE_YOUTUBE");
-                break;
+                case MOVIE_YOUTUBE:
+                    Log.d(TAG, "onCreateViewHolder: MOVIE_YOUTUBE");
+                    break;
 
-            default:
-                Log.d(TAG, "onCreateViewHolder: default");
-                View videoVR1 = inflater.inflate(R.layout.item_video, parent, false);
-                viewHolder = new ViewHolderVrMovie(videoVR1);
-                break;
+                default:
+                    Log.d(TAG, "onCreateViewHolder: default");
+                    View videoVR1 = inflater.inflate(R.layout.item_video, parent, false);
+                    viewHolder = new ViewHolderVrMovie(videoVR1);
+                    break;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
         return viewHolder;
@@ -87,32 +98,38 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+        try {
+            switch (viewHolder.getItemViewType()) {
+                case MOVIE_VR:
+                    Log.d(TAG, "onBindViewHolder:22222 MOVIE_VR  2222222222 mContext "+mContext);
 
-        switch (viewHolder.getItemViewType()) {
-            case MOVIE_VR:
-                Log.d(TAG, "onBindViewHolder: MOVIE_VR");
-
-                ViewHolderVrMovie viewHolderVr= (ViewHolderVrMovie) viewHolder;
-                viewHolderVr.video_view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = v.getVerticalScrollbarPosition();
-                    Log.d(TAG, "onClick: position "+position);
+                    ViewHolderVrMovie viewHolderVr = (ViewHolderVrMovie) viewHolder;
                     Video video = videos.get(position);
-                    Intent intent = new Intent(mContext, VideoActivity.class);
-                    intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
-                    mContext.startActivity(intent);
-                }
-            });
-                break;
-            case MOVIE_YOUTUBE:
-                Log.d(TAG, "onBindViewHolder: MOVIE_YOUTUBE");
+                    viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
+                    viewHolderVr.video_view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int position = v.getVerticalScrollbarPosition();
+                            Log.d(TAG, " setOnClickListener onClick:#################################   position " + position);
+                            Video video = videos.get(position);
+                            Intent intent = new Intent(mContext, VideoActivity.class);
+                            intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
+                            mContext.startActivity(intent);
+                        }
+                    });
+                    break;
+                case MOVIE_YOUTUBE:
+                    Log.d(TAG, "onBindViewHolder: MOVIE_YOUTUBE");
 
-                break;
-            default:
-                Log.d(TAG, "onBindViewHolder: default");
+                    break;
+                default:
+                    Log.d(TAG, "onBindViewHolder: default");
 
-                break;
+                    break;
+            }
+        }catch (Exception e){
+
+            e.printStackTrace();
         }
     }
 
@@ -144,6 +161,8 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         @Bind(R.id.video_view)
         public VrVideoView video_view;
+        @Bind(R.id.bttn_watch_vid)
+        public Button bttn_watch_vid;
 
         public ViewHolderVrMovie(View itemView) {
             super(itemView);
@@ -154,11 +173,13 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         @Override
         public void onClick(View v) {
             try {
+
                 int position = getLayoutPosition();
                 Video video = videos.get(position);
-                Log.d(TAG, "onClick: position " + position);
+                Log.d(TAG, "onClick: position @@@@@@@ " + position);
                 Intent intent = new Intent(mContext, VideoActivity.class);
                 intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
+                Log.d(TAG, "onClick: startActivity $$$$$$$$$$$$$$$$$$$$ ");
                 mContext.startActivity(intent);
             }catch (Exception e){
                 e.printStackTrace();
