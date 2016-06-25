@@ -17,6 +17,7 @@ import com.walmart.apps.video360app.util.CommonUtils;
 
 import org.parceler.Parcels;
 
+import java.io.IOException;
 import java.util.List;
 
 import butterknife.Bind;
@@ -44,26 +45,18 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return videos.get(position);
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        public MyViewHolder(View view) {
-            super(view);
-
-            // add code here
-        }
-    }
-
     public VideoAdapter(List<Video> videos) {
 
         this.videos = videos;
     }
 
     @Override
-    public RecyclerView.ViewHolder  onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_video, parent, false);
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         RecyclerView.ViewHolder viewHolder =null;
+        Log.d(TAG, "ViewHolder: onCreateViewHolder ");
         switch (viewType) {
             case MOVIE_VR:
                 View videoVR = inflater.inflate(R.layout.item_video, parent, false);
@@ -93,15 +86,29 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 Log.d(TAG, "onBindViewHolder: MOVIE_VR");
 
                 ViewHolderVrMovie viewHolderVr= (ViewHolderVrMovie) viewHolder;
+
+                // get the video to play
+
+                Video video = videos.get(position);
+                VrVideoView.Options option = new VrVideoView.Options();
+                try {
+                    viewHolderVr.video_view.loadVideo(video.getUri(), option);
+                    viewHolderVr.video_view.playVideo();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 viewHolderVr.video_view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = v.getVerticalScrollbarPosition();
                     Log.d(TAG, "onClick: position "+position);
                     Video video = videos.get(position);
-                    Intent intent = new Intent(mContext, VideoActivity.class);
-                    intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
-                    mContext.startActivity(intent);
+
+//                    Intent intent = new Intent(mContext, VideoActivity.class);
+//                    intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
+//                    mContext.startActivity(intent);
                 }
             });
                 break;

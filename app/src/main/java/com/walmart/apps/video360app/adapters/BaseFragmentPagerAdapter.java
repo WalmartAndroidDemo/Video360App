@@ -18,7 +18,6 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
     public BaseFragmentPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         mContext = context;
-
     }
 
     @Override
