@@ -48,10 +48,11 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
     public void onResume(){
         super.onResume();
         Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
+        Log.d(LandingActivity.class.getSimpleName(), "onResume: viewpager.getCurrentItem() "+viewpager.getCurrentItem());
         HomeLandingFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
         if(timelineFragement != null){
-            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111 2222222222222222222222 2 2  22 2 2 2 2 ");
-            timelineFragement.populateVideos(1);
+            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111 2222222222222222222222 2 2  22 2 2 2 2 "+timelineFragement);
+            timelineFragement.populateVideos(viewpager.getCurrentItem());
         }
     }
 

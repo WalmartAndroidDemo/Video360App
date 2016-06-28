@@ -39,17 +39,18 @@ public class HomeLandingFragement extends BaseFragement{
     public void populateVideos(int page) {
         Log.d(VideoAdapter.class.getSimpleName(), "populateVideos: 1 ");
         VideoAdapter lVideoAdapter =getAdapter();
+        int tab = CommonUtils.getMovieType(getArguments());
         Log.d(TAG, "populateVideos: lVideoAdapter "+lVideoAdapter);
         if(lVideoAdapter!=null){
            // Log.d(TAG, "populateVideos: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
             swipeContainer.setRefreshing(false);
-            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies());
+            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies(tab));
             Log.d(TAG, "populateVideos: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
             lVideoAdapter.notifyDataSetChanged();
             swipeContainer.setRefreshing(true);
         }else {
             Log.d(TAG, "populateVideos: initialized adapter :::::::::");
-            VideoAdapter lvideoAdapter = new VideoAdapter( getContext(), CommonUtils.getDefaultMovies());
+            VideoAdapter lvideoAdapter = new VideoAdapter( getContext(), CommonUtils.getDefaultMovies(tab));
             this.videoAdapter=lvideoAdapter;
         }
 
@@ -66,17 +67,18 @@ public class HomeLandingFragement extends BaseFragement{
         Log.d(TAG, "onCreate: call populateVideos ########  3");
         super.onCreate(savedInstanceState);
         VideoAdapter lVideoAdapter =getAdapter();
+        int tab = CommonUtils.getMovieType(getArguments());
         Log.d(TAG, "onCreate: lVideoAdapter "+lVideoAdapter);
         if(lVideoAdapter!=null){
             // Log.d(TAG, "populateVideos: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
             swipeContainer.setRefreshing(false);
-            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies());
+            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies(tab));
             Log.d(TAG, "onCreate: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
             lVideoAdapter.notifyDataSetChanged();
             swipeContainer.setRefreshing(true);
         }else {
             Log.d(TAG, "onCreate: initialized adapter :::::::::");
-            VideoAdapter lvideoAdapter = new VideoAdapter( getContext(), CommonUtils.getDefaultMovies());
+            VideoAdapter lvideoAdapter = new VideoAdapter( getContext(), CommonUtils.getDefaultMovies(tab));
             this.videoAdapter=lvideoAdapter;
         }
     }

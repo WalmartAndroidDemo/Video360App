@@ -67,7 +67,7 @@ public abstract class BaseFragement extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate:Bunble  Base Fragement ");
+        Log.d(TAG, "onCreate:Bunble  Base Fragement getArguments "+getArguments());
         if(getArguments() != null) {
             if (getArguments().containsKey(CommonUtils.TIMELINE_ARG)) {
                 mTimeline = getArguments().getString(CommonUtils.TIMELINE_ARG).toLowerCase();
@@ -92,9 +92,10 @@ public abstract class BaseFragement extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         Log.d(TAG, "onViewCreated: Base 11111111  !!!111111  ");
+        int tab = CommonUtils.getMovieType(getArguments());
         if(getAdapter()==null) {
             Log.d(TAG, "onViewCreated: Base 11111111  !!!111111 getAdapter()==null ");
-            videoAdapter = new VideoAdapter(getContext(), CommonUtils.getDefaultMovies());
+            videoAdapter = new VideoAdapter(getContext(), CommonUtils.getDefaultMovies(tab));
         }
         lvVideos.setAdapter(videoAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
