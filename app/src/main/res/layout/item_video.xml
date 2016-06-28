@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
-
     <com.google.vr.sdk.widgets.video.VrVideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:clickable="true"
         android:layout_height="250dip"/>
 
-    <Button
+    <!--
+     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Watch"
@@ -20,7 +20,6 @@
         android:layout_centerHorizontal="true"
         android:onClick="watchVideo" />
 
-    <!--
         <VideoView
             android:layout_width="60dp"
             android:layout_height="70dp"

@@ -8,6 +8,8 @@ import android.support.annotation.UiThread;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -113,6 +115,7 @@ public class VideoActivity extends AppCompatActivity {
         // Initial launch of the app or an Activity recreation due to rotation.
         handleIntent(getIntent());
     }
+
 
     // Adding VR Video
 
@@ -321,6 +324,8 @@ public class VideoActivity extends AppCompatActivity {
         }
     }
 
+
+
     /**
      * Helper class to manage threading.
      */
@@ -342,6 +347,9 @@ public class VideoActivity extends AppCompatActivity {
                 } else {
                     Log.d(TAG, "doInBackground: fileInformation != null "+ fileInformation[0]);
                     videoWidgetView.loadVideo(fileInformation[0].first, fileInformation[0].second);
+
+                    View framelayout = ((ViewGroup) videoWidgetView).getChildAt(0);
+                   // ((ViewGroup)((ViewGroup)((ViewGroup)framelayout).getChildAt(1)).getChildAt(2)).getChildAt(0).performClick();
                 }
             } catch (IOException e) {
                 // An error here is normally due to being unable to locate the file.
@@ -359,5 +367,7 @@ public class VideoActivity extends AppCompatActivity {
             return true;
         }
     }
+
+
 
 }

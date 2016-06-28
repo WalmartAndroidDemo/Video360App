@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".LandingActivity"
             android:label="Home"
+            android:launchMode="singleTop"
             android:parentActivityName=".HomeActivity"
             />
         <activity android:name=".VideoActivity"

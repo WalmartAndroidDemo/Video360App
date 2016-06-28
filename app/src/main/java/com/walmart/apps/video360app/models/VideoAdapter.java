@@ -105,8 +105,9 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                     ViewHolderVrMovie viewHolderVr = (ViewHolderVrMovie) viewHolder;
                     Video video = videos.get(position);
-                    //viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
-                   // viewHolderVr.video_view.pauseVideo();
+                    viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
+                    viewHolderVr.video_view.setClickable(true);
+                    viewHolderVr.video_view.pauseVideo();
                     if (viewHolderVr.video_view.callOnClick()){
                         Log.d(TAG, " setOnClickListener onClick:#################################   position " + position);
                         Intent intent = new Intent(mContext, VideoActivity.class);
@@ -169,7 +170,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         @Bind(R.id.video_view)
         public VrVideoView video_view;
-        @Bind(R.id.bttn_watch_vid)
+        // @Bind(R.id.bttn_watch_vid)
         public Button bttn_watch_vid;
 
         public ViewHolderVrMovie(View itemView) {

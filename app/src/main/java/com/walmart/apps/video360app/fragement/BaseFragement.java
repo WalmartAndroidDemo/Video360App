@@ -19,7 +19,6 @@ import com.walmart.apps.video360app.R;
 import com.walmart.apps.video360app.models.Video;
 import com.walmart.apps.video360app.models.VideoAdapter;
 import com.walmart.apps.video360app.util.CommonUtils;
-import com.walmart.apps.video360app.view.DividerItemDecoration;
 
 import java.util.List;
 
@@ -68,7 +67,7 @@ public abstract class BaseFragement extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate:Bunble  BaseFragement ");
+        Log.d(TAG, "onCreate:Bunble  Base Fragement ");
         if(getArguments() != null) {
             if (getArguments().containsKey(CommonUtils.TIMELINE_ARG)) {
                 mTimeline = getArguments().getString(CommonUtils.TIMELINE_ARG).toLowerCase();
@@ -100,11 +99,8 @@ public abstract class BaseFragement extends Fragment {
         lvVideos.setAdapter(videoAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         lvVideos.setLayoutManager(linearLayoutManager);
-
-        lvVideos.addItemDecoration(new DividerItemDecoration((Context) mListener, DividerItemDecoration.VERTICAL_LIST));
-
+       // lvVideos.addItemDecoration(new DividerItemDecoration((Context) mListener, DividerItemDecoration.VERTICAL_LIST));
         // Attach the listener to the AdapterView onCreate
-
         lvVideos.addOnScrollListener(new EndlessScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore() {

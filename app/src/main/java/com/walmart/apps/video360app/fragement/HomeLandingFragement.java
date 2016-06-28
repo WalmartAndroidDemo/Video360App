@@ -19,8 +19,6 @@ import org.parceler.Parcels;
  */
 public class HomeLandingFragement extends BaseFragement{
     static final String TAG = HomeLandingFragement.class.getSimpleName();
-
-
     private OnMovieTimelineFragmentInteractionListener mListener;
 
     public static HomeLandingFragement newInstance(String timeline, String movieId) {
@@ -67,8 +65,20 @@ public class HomeLandingFragement extends BaseFragement{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: call populateVideos ########  3");
         super.onCreate(savedInstanceState);
-
-        // populateVideos(1);
+        VideoAdapter lVideoAdapter =getAdapter();
+        Log.d(TAG, "onCreate: lVideoAdapter "+lVideoAdapter);
+        if(lVideoAdapter!=null){
+            // Log.d(TAG, "populateVideos: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
+            swipeContainer.setRefreshing(false);
+            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies());
+            Log.d(TAG, "onCreate: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
+            lVideoAdapter.notifyDataSetChanged();
+            swipeContainer.setRefreshing(true);
+        }else {
+            Log.d(TAG, "onCreate: initialized adapter :::::::::");
+            VideoAdapter lvideoAdapter = new VideoAdapter( getContext(), CommonUtils.getDefaultMovies());
+            this.videoAdapter=lvideoAdapter;
+        }
     }
 
     public void watchVideo(View v){
