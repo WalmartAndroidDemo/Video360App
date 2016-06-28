@@ -8,24 +8,7 @@
     tools:context="com.walmart.apps.video360app.LandingActivity">
 
 
-    <!--<include layout="@layout/content_home_landing" />-->
-
-    <!-- placeholder for now remove after content_home_landing is added -->
-    <android.support.design.widget.TabLayout
-        xmlns:custom="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/sliding_tabs"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        custom:tabMode="scrollable"
-        />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_below="@+id/sliding_tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white" />
+    <include layout="@layout/content_home_landing" />
 
 
 </android.support.design.widget.CoordinatorLayout>

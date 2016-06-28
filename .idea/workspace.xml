@@ -20,30 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d4e0df1-df86-48c1-9bf4-05c2f5b70ce3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/SampleVideo_1280x720_1mb.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/congo_2048.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/sample_converted.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/space_background.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_video_watch.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/LandingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/LandingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/VideoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/VideoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/fragement/BaseFragement.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/fragement/BaseFragement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/fragement/HomeLandingFragement.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/fragement/HomeLandingFragement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/models/VideoAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/models/VideoAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/util/CommonUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/walmart/apps/video360app/util/CommonUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_landing.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_landing.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_video.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audio/audio.iml" afterPath="$PROJECT_DIR$/audio/audio.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videowidget/videowidget.iml" afterPath="$PROJECT_DIR$/videowidget/videowidget.iml" />
     </list>
     <ignored path="Video360App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,8 +87,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41709843">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.54404145">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -3562,8 +3539,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41709843">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.54404145">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
