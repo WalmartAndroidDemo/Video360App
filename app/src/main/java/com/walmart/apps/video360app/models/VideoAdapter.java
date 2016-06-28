@@ -105,7 +105,14 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                     ViewHolderVrMovie viewHolderVr = (ViewHolderVrMovie) viewHolder;
                     Video video = videos.get(position);
-                    viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
+                    //viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
+                   // viewHolderVr.video_view.pauseVideo();
+                    if (viewHolderVr.video_view.callOnClick()){
+                        Log.d(TAG, " setOnClickListener onClick:#################################   position " + position);
+                        Intent intent = new Intent(mContext, VideoActivity.class);
+                        intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
+                        mContext.startActivity(intent);
+                    }
                     viewHolderVr.video_view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -117,6 +124,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                             mContext.startActivity(intent);
                         }
                     });
+
                     break;
                 case MOVIE_YOUTUBE:
                     Log.d(TAG, "onBindViewHolder: MOVIE_YOUTUBE");
@@ -176,7 +184,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                 int position = getLayoutPosition();
                 Video video = videos.get(position);
-                Log.d(TAG, "onClick: position @@@@@@@ " + position);
+                Log.d(TAG, "onClick: position @@@@@@@  lllll " + position);
                 Intent intent = new Intent(mContext, VideoActivity.class);
                 intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
                 Log.d(TAG, "onClick: startActivity $$$$$$$$$$$$$$$$$$$$ ");

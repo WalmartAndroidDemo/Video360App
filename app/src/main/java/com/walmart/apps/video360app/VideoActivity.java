@@ -160,6 +160,14 @@ public class VideoActivity extends AppCompatActivity {
             } else {
                 Log.i(TAG, "Intent is not ACTION_VIEW. Using the default video.");
                 fileUri = null;
+                Video video = Parcels.unwrap(getIntent().getParcelableExtra(CommonUtils.MOVIE_VR));
+                if (video.getUri() != null) {
+                    fileUri = video.getUri();
+                    Log.d(TAG, "handleIntent: fileUri 222222222  " + fileUri);
+                } else {
+                    fileUri = Uri.parse("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4");
+
+                }
             }
 
             // Load the bitmap in a background thread to avoid blocking the UI thread. This operation can
@@ -325,6 +333,7 @@ public class VideoActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Pair<Uri, VrVideoView.Options>... fileInformation) {
             try {
+                Log.d(TAG, "doInBackground: @@@@@@@@@@@@@@@@@@@@@@@@@@@@ ");
                 if (fileInformation == null || fileInformation.length < 1
                         || fileInformation[0] == null || fileInformation[0].first == null) {
                     Log.d(TAG, "doInBackground: fileInformation == null ");

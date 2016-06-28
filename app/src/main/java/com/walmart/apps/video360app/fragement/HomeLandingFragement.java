@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.View;
 
 import com.walmart.apps.video360app.VideoActivity;
+import com.walmart.apps.video360app.models.Video;
 import com.walmart.apps.video360app.models.VideoAdapter;
 import com.walmart.apps.video360app.util.CommonUtils;
+
+import org.parceler.Parcels;
 
 /**
  * Created by dkthaku on 6/23/16.
@@ -62,17 +65,23 @@ public class HomeLandingFragement extends BaseFragement{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate: call populateVideos 3");
+        Log.d(TAG, "onCreate: call populateVideos ########  3");
         super.onCreate(savedInstanceState);
 
-         populateVideos(1);
+        // populateVideos(1);
     }
 
     public void watchVideo(View v){
-
-        Log.d(TAG, "watchVideo: ");
-        Intent i = new Intent(getContext(), VideoActivity.class);
-        startActivity(i);
+        try {
+            Log.d(TAG, "watchVideo: ###############");
+            int position = v.getVerticalScrollbarPosition();
+            Video video = getAdapter().getItem(position);
+            Intent intent = new Intent(getContext(), VideoActivity.class);
+            intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
+            getContext().startActivity(intent);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

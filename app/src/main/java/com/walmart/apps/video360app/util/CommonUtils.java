@@ -46,8 +46,11 @@ public class CommonUtils {
 
     public static ArrayList<Video> getDefaultMovies(){
             ArrayList<Video>  movieList = new ArrayList<>();
-            movieList.add(new Video("https://kelley-holmes-uljc.squarespace.com/s/space_background.mp4"));
+            movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/9256d26c-2712-446e-b1dc-f461f0478fc4/web.mp4"));
              movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4"));
+        movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/a25016a8-de5e-40bb-8b41-4557cca15965/web.mp4"));
+        movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/be941812-6478-4a07-93f8-dd71f2075616/web.mp4"));
+        movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/7103e91c-e292-4993-81fc-66352ab9ce3c/web.mp4"));
         return movieList;
 
     }

@@ -31,7 +31,7 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-
+            Log.d(LandingActivity.class.getSimpleName(), "onCreate: SSSSSSSS  SSSSSSSSS ");
             setContentView(R.layout.activity_landing);
             ButterKnife.bind(this);
             mBaseFragmentPagerAdapter = new BaseFragmentPagerAdapter(getSupportFragmentManager(), LandingActivity.this);
@@ -47,9 +47,10 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
     @Override
     public void onResume(){
         super.onResume();
+        Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
         HomeLandingFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
         if(timelineFragement != null){
-            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
+            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111 2222222222222222222222 2 2  22 2 2 2 2 ");
             timelineFragement.populateVideos(1);
         }
     }
