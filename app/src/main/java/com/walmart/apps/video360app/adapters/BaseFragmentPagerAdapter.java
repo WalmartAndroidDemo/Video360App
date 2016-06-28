@@ -31,6 +31,7 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
         }
 
         public static Position fromValue(int x){
+
             if(x == 0) {
                 return Trending;
             }else if( x == 1) {
@@ -46,7 +47,8 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
 
     };
 
-    private static final int PAGE_COUNT = 4;
+    public static final int PAGE_COUNT = 100;
+    public static final int FRAGMENT_COUNT = 4;
     private static final String TAB_TITLES[] = new String[]{"Trending", "Fun", "News", "Politics"};
     private Context mContext;
 
@@ -57,10 +59,7 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        String timeline = TAB_TITLES[position];
-        //return HomeLandingFragement.newInstance(timeline, "");
-
-        Position p = Position.fromValue(position);
+        Position p = Position.fromValue(position % FRAGMENT_COUNT);
         switch (p){
             case Trending:
                 return TrendingFragement.newInstance();
@@ -82,7 +81,8 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
 
-        return TAB_TITLES[position];
+        return TAB_TITLES[position % FRAGMENT_COUNT];
+//        return null;
     }
 }
 

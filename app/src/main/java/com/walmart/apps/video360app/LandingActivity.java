@@ -9,7 +9,6 @@ import android.util.Log;
 import com.walmart.apps.video360app.adapters.BaseFragmentPagerAdapter;
 import com.walmart.apps.video360app.adapters.SmartFragmentStatePagerAdapter;
 import com.walmart.apps.video360app.fragement.BaseFragement;
-import com.walmart.apps.video360app.fragement.HomeLandingFragement;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,21 +37,49 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
             mSmartFragmentStatePagerAdapter = mBaseFragmentPagerAdapter;
             viewpager.setAdapter(mBaseFragmentPagerAdapter);
             slidingTabs.setupWithViewPager(viewpager);
+
+            // setup tab icons.
+            setupTabIcons();
+
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
-        Log.d(LandingActivity.class.getSimpleName(), "onResume: viewpager.getCurrentItem() "+viewpager.getCurrentItem());
-        HomeLandingFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
-        if(timelineFragement != null){
-            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111 2222222222222222222222 2 2  22 2 2 2 2 "+timelineFragement);
-            timelineFragement.populateVideos(viewpager.getCurrentItem());
+    public void setupTabIcons(){
+
+        for(int i=0;i< BaseFragmentPagerAdapter.PAGE_COUNT; i++) {
+
+            int type = i % BaseFragmentPagerAdapter.FRAGMENT_COUNT;
+
+            switch (type) {
+                case 0:
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.trending_tab);
+                    break;
+                case 1:
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.entertainment_tab);
+                    break;
+                case 2:
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.news_tab);
+                    break;
+                case 3:
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.politics_tab);
+                    break;
+            }
         }
     }
+
+
+//    @Override
+//    public void onResume(){
+//        super.onResume();
+//        Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
+//        Log.d(LandingActivity.class.getSimpleName(), "onResume: viewpager.getCurrentItem() "+viewpager.getCurrentItem());
+//        HomeLandingFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
+//        if(timelineFragement != null){
+//            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111 2222222222222222222222 2 2  22 2 2 2 2 "+timelineFragement);
+//            timelineFragement.populateVideos(viewpager.getCurrentItem());
+//        }
+//    }
 }
