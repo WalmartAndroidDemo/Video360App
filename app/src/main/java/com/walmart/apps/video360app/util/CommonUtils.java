@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -38,6 +39,14 @@ import java.util.regex.Pattern;
 public class CommonUtils {
 
     public static final String TIMELINE_ARG = "timeline";
+    public static final String TIMELINE_TRENDING = "Trending";
+    public static final String TIMELINE_FUN = "Fun";
+    public static final String TIMELINE_MEDIA = "Media";
+
+    public static final int TIMELINE_TRENDING_TAB = 0;
+    public static final int TIMELINE_FUN_TAB = 1;
+    public static final int TIMELINE_MEDIA_TAB = 2;
+
     public static final String MOVIE_ID_ARG = "movieId";
     public static final String MOVIE_VR = "VrMovie";
     static final String TAG = CommonUtils.class.getSimpleName();
@@ -46,8 +55,52 @@ public class CommonUtils {
 
     public static ArrayList<Video> getDefaultMovies(){
             ArrayList<Video>  movieList = new ArrayList<>();
-            movieList.add(new Video("https://kelley-holmes-uljc.squarespace.com/s/space_background.mp4"));
+            movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/9256d26c-2712-446e-b1dc-f461f0478fc4/web.mp4"));
              movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4"));
+        movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/a25016a8-de5e-40bb-8b41-4557cca15965/web.mp4"));
+        movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/be941812-6478-4a07-93f8-dd71f2075616/web.mp4"));
+        movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/7103e91c-e292-4993-81fc-66352ab9ce3c/web.mp4"));
+        return movieList;
+
+    }
+
+    public static int getMovieType(Bundle bundle){
+        Log.d(TAG, "getMovieType: bundle "+bundle);
+        int tab=-1;
+        String timelineArg =null;
+        if(bundle != null) {
+            timelineArg=bundle.getString(CommonUtils.TIMELINE_ARG);
+            Log.d(TAG, "getMovieType: timelineArg "+timelineArg);
+            if (timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_TRENDING)){
+                    tab=CommonUtils.TIMELINE_TRENDING_TAB;
+            }else if(timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_MEDIA)){
+                tab=CommonUtils.TIMELINE_MEDIA_TAB;
+            }else if(timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_FUN)){
+                tab=CommonUtils.TIMELINE_FUN_TAB;
+            }
+        }
+        Log.d(TAG, "getMovieType: tab "+tab);
+        return tab;
+    }
+
+    public static ArrayList<Video> getDefaultMovies(int movieTypes){
+        Log.d(TAG, "getDefaultMovies: movieTypes "+movieTypes);
+        ArrayList<Video> movieList = new ArrayList<>();
+        switch (movieTypes) {
+            case TIMELINE_TRENDING_TAB:
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/9256d26c-2712-446e-b1dc-f461f0478fc4/web.mp4"));
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4"));
+
+            case TIMELINE_FUN_TAB:
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/a25016a8-de5e-40bb-8b41-4557cca15965/web.mp4"));
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/be941812-6478-4a07-93f8-dd71f2075616/web.mp4"));
+                break;
+            case TIMELINE_MEDIA_TAB :
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/7103e91c-e292-4993-81fc-66352ab9ce3c/web.mp4"));
+                break;
+            default:
+                break;
+        }
         return movieList;
 
     }

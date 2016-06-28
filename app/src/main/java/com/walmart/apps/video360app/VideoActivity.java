@@ -8,6 +8,8 @@ import android.support.annotation.UiThread;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,8 @@ import com.walmart.apps.video360app.util.CommonUtils;
 import org.parceler.Parcels;
 
 import java.io.IOException;
+
+import butterknife.Bind;
 
 /**
  * Created by ssahu6 on 6/23/16.
@@ -67,14 +71,17 @@ public class VideoActivity extends AppCompatActivity {
     /**
      * The video view and its custom UI elements.
      */
+    @Bind(R.id.video_view)
     protected VrVideoView videoWidgetView;
 
     /**
      * Seeking UI & progress indicator. The seekBar's progress value represents milliseconds in the
      * video.
      */
-    private SeekBar seekBar;
-    private TextView statusText;
+    @Bind(R.id.seek_bar)
+    public SeekBar seekBar;
+    @Bind(R.id.status_text)
+    public TextView statusText;
 
     /**
      * By default, the video will start playing as soon as it is loaded. This can be changed by using
@@ -85,8 +92,7 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_video);
-
+        setContentView(R.layout.item_video_watch);
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new SeekBarListener());
         statusText = (TextView) findViewById(R.id.status_text);
@@ -109,6 +115,7 @@ public class VideoActivity extends AppCompatActivity {
         // Initial launch of the app or an Activity recreation due to rotation.
         handleIntent(getIntent());
     }
+
 
     // Adding VR Video
 
@@ -156,6 +163,14 @@ public class VideoActivity extends AppCompatActivity {
             } else {
                 Log.i(TAG, "Intent is not ACTION_VIEW. Using the default video.");
                 fileUri = null;
+                Video video = Parcels.unwrap(getIntent().getParcelableExtra(CommonUtils.MOVIE_VR));
+                if (video.getUri() != null) {
+                    fileUri = video.getUri();
+                    Log.d(TAG, "handleIntent: fileUri 222222222  " + fileUri);
+                } else {
+                    fileUri = Uri.parse("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4");
+
+                }
             }
 
             // Load the bitmap in a background thread to avoid blocking the UI thread. This operation can
@@ -309,6 +324,8 @@ public class VideoActivity extends AppCompatActivity {
         }
     }
 
+
+
     /**
      * Helper class to manage threading.
      */
@@ -321,12 +338,18 @@ public class VideoActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Pair<Uri, VrVideoView.Options>... fileInformation) {
             try {
+                Log.d(TAG, "doInBackground: @@@@@@@@@@@@@@@@@@@@@@@@@@@@ ");
                 if (fileInformation == null || fileInformation.length < 1
                         || fileInformation[0] == null || fileInformation[0].first == null) {
-                    videoWidgetView.loadVideoFromAsset("congo.mp4");
+                    Log.d(TAG, "doInBackground: fileInformation == null ");
+                    videoWidgetView.loadVideoFromAsset("congo_2048.mp4");
 
                 } else {
+                    Log.d(TAG, "doInBackground: fileInformation != null "+ fileInformation[0]);
                     videoWidgetView.loadVideo(fileInformation[0].first, fileInformation[0].second);
+
+                    View framelayout = ((ViewGroup) videoWidgetView).getChildAt(0);
+                   // ((ViewGroup)((ViewGroup)((ViewGroup)framelayout).getChildAt(1)).getChildAt(2)).getChildAt(0).performClick();
                 }
             } catch (IOException e) {
                 // An error here is normally due to being unable to locate the file.
@@ -344,5 +367,7 @@ public class VideoActivity extends AppCompatActivity {
             return true;
         }
     }
+
+
 
 }

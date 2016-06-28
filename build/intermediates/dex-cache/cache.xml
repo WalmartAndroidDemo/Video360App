@@ -1,2 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.annotation/10.0-b28/30eb3b3cc9cb0863a4edaea5a7575f8ace1b96ba/javax.annotation-10.0-b28.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="30eb3b3cc9cb0863a4edaea5a7575f8ace1b96ba">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/javax.annotation-10.0-b28_57d2dbefb5a94946053d0209ae88aff700dcfe17.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.astuetz-pagerslidingtabstrip-1.0.1_166ce1b0f62a2d7b1f9ed650a7c12130ecc86bc4.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/Video360App/videowidget/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ee84f6e36445a6e22d124317f41d310a3448ac35">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/Video360App-videowidget-unspecified_edb565b1b6937e431f0ad046b30275179eacad3b.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/Video360App/audio/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d9d7d13af3217bb0b04ef018702f033462f35d6c">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/Video360App-audio-unspecified_875d146b4e67473dfbe78cfdd6adea4c8fb01ecb.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/Video360App/base/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="80ea6b1dd6d6895b3ea9ce18699a276c70758984">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/Video360App-base-unspecified_234742924ac5950091c47422ade8513675d6c827.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_9c40e792a1c013f5291637d6fe62f1446bc81db3.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_4c519e8b439bf34db1890ffb8c66b4b473219402.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/gson-2.4_22d807155d31f7ae626f51f4a01ca7a1870e3892.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_3dd100919bf29a6c40a6775b98081ada372038a8.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.4.0_4e7b84b40547cd5da749b37b8af397ff60aef35b.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/Video360App/commonwidget/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6157c3d8587b95dd401c12eddabb24e8fd8c8fd4">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/Video360App-commonwidget-unspecified_a4915dadfc5776bd1cc2fe2f5af6604caf2d145d.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_7759f3a97b32ab9e4548a3c8cb72e9e55630c99c.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.yqritc/android-scalablevideoview/1.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="cf9c4cb7c5c5597b05a3da0b28fd7afbedef628b">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.yqritc-android-scalablevideoview-1.0.3_e28c5ba53979c65daf70814962fec5d05a086e39.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_8823767ba8b92e509127f7e38ff963f788ca3be4.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="814fc0c3ec69a944add398217d90077301501a74">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.makeramen-roundedimageview-2.2.1_f47eb29d06d35630e4bff8befbee683bf940f99a.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1_39c6601439d9978508780da9dbad169c373b1cef.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/Video360App/controller/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="08314aa5e29c77728ca9e1cc256509f509f8972b">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/Video360App-controller-unspecified_d10779b2fc3993f04014fce96699249661df7c18.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/org.parceler/parceler-api/1.1.1/d081ad6f7c51627ebe2dbf157cc525cbf5e9c821/parceler-api-1.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d081ad6f7c51627ebe2dbf157cc525cbf5e9c821">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/parceler-api-1.1.1_c650b387b5ba062e3cda1a37d0d2b70358643bac.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.9.2/36d6e77a419cb455e6fd5909f6f96b168e21e9d0/joda-time-2.9.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="36d6e77a419cb455e6fd5909f6f96b168e21e9d0">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/joda-time-2.9.2_54a887b9b184f1cce30bd7fd06432a7d19854563.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/Video360App/common/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a1bab422d04c105da043ba646e607695d9a99b5f">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/Video360App-common-unspecified_ec79e3d2affd7e9536ed04b2f7418599b8cc0b9c.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_505c3696da47d0b357c0706dbff348a6c3c7f559.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/httpclient-4.3.6_ea35e0196a1535d685a93ef463089e237b3dfa61.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_bf621c58e55e2671bfae14ecd14e13ba91aa73b9.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_15537506b99ac4d0a78c2062e8f0c6b40b740bae.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/exploded-aar/com.malmstein/fenster/0.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a54ae475e0407f0c9cde5babc0ac45feb0d1a47f">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/com.malmstein-fenster-0.0.2_9c32db35866322117b688b3e7b9ecf40ae082798.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.5.2/ecf534dba3a8446ce84cbb797d314763be212a68/glide-3.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ecf534dba3a8446ce84cbb797d314763be212a68">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/glide-3.5.2_c7c1023d79890d2dfb1dbeca1498b81177c83a94.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_c256ac353fb1a85e610a526538bdb771cbbe84d9.jar" />
+    </item>
+    <item
+        jar="/Users/ssahu6/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
+        <dex dex="/Users/ssahu6/my_stuff/training/AndroidProject/week-6/master/Video360App/app/build/intermediates/pre-dexed/debug/activeandroid-3.1.0-SNAPSHOT_c97029681c73d814676ff2674651455b8b24e008.jar" />
+    </item>
+
+</items>
