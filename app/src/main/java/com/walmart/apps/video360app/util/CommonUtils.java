@@ -42,10 +42,14 @@ public class CommonUtils {
     public static final String TIMELINE_TRENDING = "Trending";
     public static final String TIMELINE_FUN = "Fun";
     public static final String TIMELINE_MEDIA = "Media";
+    public static final String TIMELINE_POLITICS = "Politics";
+    public static final String TIMELINE_NEWS = "New";
+
 
     public static final int TIMELINE_TRENDING_TAB = 0;
     public static final int TIMELINE_FUN_TAB = 1;
-    public static final int TIMELINE_MEDIA_TAB = 2;
+    public static final int TIMELINE_NEWS_TAB = 2;
+    public static final int TIMELINE_POLITICS_TAB = 3;
 
     public static final String MOVIE_ID_ARG = "movieId";
     public static final String MOVIE_VR = "VrMovie";
@@ -73,10 +77,12 @@ public class CommonUtils {
             Log.d(TAG, "getMovieType: timelineArg "+timelineArg);
             if (timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_TRENDING)){
                     tab=CommonUtils.TIMELINE_TRENDING_TAB;
-            }else if(timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_MEDIA)){
-                tab=CommonUtils.TIMELINE_MEDIA_TAB;
+            }else if(timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_NEWS)){
+                tab=CommonUtils.TIMELINE_NEWS_TAB;
             }else if(timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_FUN)){
                 tab=CommonUtils.TIMELINE_FUN_TAB;
+            }else if(timelineArg.equalsIgnoreCase(CommonUtils.TIMELINE_POLITICS)){
+                tab=CommonUtils.TIMELINE_POLITICS_TAB;
             }
         }
         Log.d(TAG, "getMovieType: tab "+tab);
@@ -95,9 +101,13 @@ public class CommonUtils {
                 movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/a25016a8-de5e-40bb-8b41-4557cca15965/web.mp4"));
                 movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/be941812-6478-4a07-93f8-dd71f2075616/web.mp4"));
                 break;
-            case TIMELINE_MEDIA_TAB :
+            case TIMELINE_NEWS_TAB :
                 movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/7103e91c-e292-4993-81fc-66352ab9ce3c/web.mp4"));
                 break;
+            case TIMELINE_POLITICS_TAB :
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/7103e91c-e292-4993-81fc-66352ab9ce3c/web.mp4"));
+                break;
+
             default:
                 break;
         }

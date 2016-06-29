@@ -72,9 +72,7 @@ public abstract class BaseFragement extends Fragment {
             if (getArguments().containsKey(CommonUtils.TIMELINE_ARG)) {
                 mTimeline = getArguments().getString(CommonUtils.TIMELINE_ARG).toLowerCase();
             }
-            if (getArguments().containsKey(CommonUtils.MOVIE_ID_ARG)) {
-                movieId = getArguments().getString(CommonUtils.MOVIE_ID_ARG);
-            }
+
         }
     }
 

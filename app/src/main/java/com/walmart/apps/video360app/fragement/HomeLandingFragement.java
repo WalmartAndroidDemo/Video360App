@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 
@@ -20,13 +21,13 @@ import org.parceler.Parcels;
 public class HomeLandingFragement extends BaseFragement{
     static final String TAG = HomeLandingFragement.class.getSimpleName();
     private OnMovieTimelineFragmentInteractionListener mListener;
+    private static Fragment fragment;
 
-    public static HomeLandingFragement newInstance(String timeline, String movieId) {
-        Log.d(TAG, "newInstance: timeline "+timeline);
+    public static Fragment newInstance(String arg) {
+        Log.d(TAG, "newInstance: timeline "+arg);
         Bundle args = new Bundle();
-        args.putString(CommonUtils.TIMELINE_ARG, timeline);
-        args.putString(CommonUtils.MOVIE_ID_ARG, movieId);
-        HomeLandingFragement fragment = new HomeLandingFragement();
+        args.putString(CommonUtils.TIMELINE_ARG, arg);
+        fragment = new HomeLandingFragement();
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,7 +38,7 @@ public class HomeLandingFragement extends BaseFragement{
 
     @Override
     public void populateVideos(int page) {
-        Log.d(VideoAdapter.class.getSimpleName(), "populateVideos: 1 ");
+        Log.d(TAG, "populateVideos: 1 ");
         VideoAdapter lVideoAdapter =getAdapter();
         int tab = CommonUtils.getMovieType(getArguments());
         Log.d(TAG, "populateVideos: lVideoAdapter "+lVideoAdapter);

@@ -32,12 +32,11 @@ public class TrendingFragement extends BaseFragement {
 
     private OnMovieTimelineFragmentInteractionListener mListener;
 
-    public static Fragment newInstance(String timeline, String movieId) {
+    public static Fragment newInstance(String arg) {
 
         if(fragment == null) {
             Bundle args = new Bundle();
-            args.putString(CommonUtils.TIMELINE_ARG, timeline);
-            args.putString(CommonUtils.MOVIE_ID_ARG, movieId);
+            args.putString(CommonUtils.TIMELINE_ARG, arg);
             fragment = new TrendingFragement();
             fragment.setArguments(args);
         }
@@ -46,18 +45,24 @@ public class TrendingFragement extends BaseFragement {
 
     @Override
     public void populateVideos(int page) {
-        Log.d(VideoAdapter.class.getSimpleName(), "populateVideos: ");
+        Log.d(VideoAdapter.class.getSimpleName(), "populateVideos: 1 ");
         VideoAdapter lVideoAdapter =getAdapter();
+        int tab = CommonUtils.getMovieType(getArguments());
+        Log.d(TAG, "populateVideos: lVideoAdapter "+lVideoAdapter);
         if(lVideoAdapter!=null){
+            // Log.d(TAG, "populateVideos: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
             swipeContainer.setRefreshing(false);
-            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies());
+            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies(tab));
             Log.d(TAG, "populateVideos: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
             lVideoAdapter.notifyDataSetChanged();
             swipeContainer.setRefreshing(true);
         }else {
-            VideoAdapter lvideoAdapter = new VideoAdapter(CommonUtils.getDefaultMovies());
+            Log.d(TAG, "populateVideos: initialized adapter :::::::::");
+            VideoAdapter lvideoAdapter = new VideoAdapter( getContext(), CommonUtils.getDefaultMovies(tab));
             this.videoAdapter=lvideoAdapter;
         }
+
+
     }
 
     public void loadViewItems(int pos, Context ctx){
@@ -67,8 +72,23 @@ public class TrendingFragement extends BaseFragement {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "loadViewItems: onViewCreate ");
+        Log.d(TAG, "onCreate: call populateVideos ########  3");
         super.onCreate(savedInstanceState);
+        VideoAdapter lVideoAdapter =getAdapter();
+        int tab = CommonUtils.getMovieType(getArguments());
+        Log.d(TAG, "onCreate: lVideoAdapter "+lVideoAdapter);
+        if(lVideoAdapter!=null){
+            // Log.d(TAG, "populateVideos: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
+            swipeContainer.setRefreshing(false);
+            lVideoAdapter.setVideos( CommonUtils.getDefaultMovies(tab));
+            Log.d(TAG, "onCreate: lVideoAdapter getVideos "+lVideoAdapter.getVideos());
+            lVideoAdapter.notifyDataSetChanged();
+            swipeContainer.setRefreshing(true);
+        }else {
+            Log.d(TAG, "onCreate: initialized adapter :::::::::");
+            VideoAdapter lvideoAdapter = new VideoAdapter( getContext(), CommonUtils.getDefaultMovies(tab));
+            this.videoAdapter=lvideoAdapter;
+        }
     }
 
     @Override

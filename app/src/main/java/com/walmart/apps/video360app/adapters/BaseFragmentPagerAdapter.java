@@ -8,6 +8,7 @@ import com.walmart.apps.video360app.fragement.EntertainmentFragement;
 import com.walmart.apps.video360app.fragement.NewsFragement;
 import com.walmart.apps.video360app.fragement.PoliticsFragement;
 import com.walmart.apps.video360app.fragement.TrendingFragement;
+import com.walmart.apps.video360app.util.CommonUtils;
 
 /**
  * Created by dkthaku on 6/23/16.
@@ -49,7 +50,7 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
 
     public static final int PAGE_COUNT = 100;
     public static final int FRAGMENT_COUNT = 4;
-    private static final String TAB_TITLES[] = new String[]{"Trending", "Fun", "News", "Politics"};
+    private static final String TAB_TITLES[] = new String[]{CommonUtils.TIMELINE_TRENDING, CommonUtils.TIMELINE_FUN, CommonUtils.TIMELINE_NEWS, CommonUtils.TIMELINE_POLITICS};
     private Context mContext;
 
     public BaseFragmentPagerAdapter(FragmentManager fm, Context context) {
@@ -62,13 +63,13 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
         Position p = Position.fromValue(position % FRAGMENT_COUNT);
         switch (p){
             case Trending:
-                return TrendingFragement.newInstance();
+                return TrendingFragement.newInstance(CommonUtils.TIMELINE_TRENDING);
             case Entertainment:
-                return EntertainmentFragement.newInstance();
+                return EntertainmentFragement.newInstance(CommonUtils.TIMELINE_FUN);
             case News:
-                return NewsFragement.newInstance();
+                return NewsFragement.newInstance(CommonUtils.TIMELINE_NEWS);
             case Politics:
-                return PoliticsFragement.newInstance();
+                return PoliticsFragement.newInstance(CommonUtils.TIMELINE_POLITICS);
         }
         return null;
     }
