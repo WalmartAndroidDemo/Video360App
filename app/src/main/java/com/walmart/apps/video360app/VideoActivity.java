@@ -92,28 +92,34 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_video_watch);
-        seekBar = (SeekBar) findViewById(R.id.seek_bar);
-        seekBar.setOnSeekBarChangeListener(new SeekBarListener());
-        statusText = (TextView) findViewById(R.id.status_text);
+        try {
+            setContentView(R.layout.item_video_watch);
+            seekBar = (SeekBar) findViewById(R.id.seek_bar);
+            seekBar.setOnSeekBarChangeListener(new SeekBarListener());
+            statusText = (TextView) findViewById(R.id.status_text);
 
-        // Make the source link clickable.
-       // TextView sourceText = (TextView) findViewById(R.id.source);
-        //sourceText.setText(Html.fromHtml(getString(R.string.source)));
-        //sourceText.setMovementMethod(LinkMovementMethod.getInstance());
+            // Make the source link clickable.
+            // TextView sourceText = (TextView) findViewById(R.id.source);
+            //sourceText.setText(Html.fromHtml(getString(R.string.source)));
+            //sourceText.setMovementMethod(LinkMovementMethod.getInstance());
 
-        // Bind input and output objects for the view.
-        videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
+            // Bind input and output objects for the view.
+            videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
 
-       Video video= Parcels.unwrap(getIntent().getParcelableExtra(CommonUtils.MOVIE_VR));
-        Log.d(TAG, "onCreate: video "+video);
+            Video video = Parcels.unwrap(getIntent().getParcelableExtra(CommonUtils.MOVIE_VR));
+            Log.d(TAG, "onCreate: video " + video);
 
-        videoWidgetView.setEventListener(new ActivityEventListener());
+            videoWidgetView.setEventListener(new ActivityEventListener());
 
-        loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
+            loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
+            videoOptions.inputFormat = VrVideoView.Options.FORMAT_DEFAULT;
+            videoWidgetView.loadVideo(video.getUri(), videoOptions);
 
-        // Initial launch of the app or an Activity recreation due to rotation.
-        handleIntent(getIntent());
+            // Initial launch of the app or an Activity recreation due to rotation.
+            // handleIntent(getIntent());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 

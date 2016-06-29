@@ -9,7 +9,6 @@ import android.util.Log;
 import com.walmart.apps.video360app.adapters.BaseFragmentPagerAdapter;
 import com.walmart.apps.video360app.adapters.SmartFragmentStatePagerAdapter;
 import com.walmart.apps.video360app.fragement.BaseFragement;
-import com.walmart.apps.video360app.fragement.HomeLandingFragement;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -75,12 +74,16 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
     @Override
     public void onResume(){
         super.onResume();
-        Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
-        Log.d(LandingActivity.class.getSimpleName(), "onResume: viewpager.getCurrentItem() "+viewpager.getCurrentItem());
-        BaseFragement timelineFragement = (HomeLandingFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
-        if(timelineFragement != null){
-            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111 2222222222222222222222 2 2  22 2 2 2 2 "+timelineFragement);
-            timelineFragement.populateVideos(viewpager.getCurrentItem());
+        try {
+            Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111");
+            Log.d(LandingActivity.class.getSimpleName(), "onResume: viewpager.getCurrentItem() " + viewpager.getCurrentItem());
+            BaseFragement timelineFragement = (BaseFragement) mSmartFragmentStatePagerAdapter.getRegisteredFragment(viewpager.getCurrentItem());
+            if (timelineFragement != null) {
+                Log.d(LandingActivity.class.getSimpleName(), "onResume: !!!!!!!!!!!!!!!! 111111 2222222222222222222222 2 2  22 2 2 2 2 " + timelineFragement);
+                timelineFragement.populateVideos(viewpager.getCurrentItem());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }

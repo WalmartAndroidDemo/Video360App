@@ -47,10 +47,9 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
         }
 
     };
-
-    public static final int PAGE_COUNT = 100;
-    public static final int FRAGMENT_COUNT = 4;
     private static final String TAB_TITLES[] = new String[]{CommonUtils.TIMELINE_TRENDING, CommonUtils.TIMELINE_FUN, CommonUtils.TIMELINE_NEWS, CommonUtils.TIMELINE_POLITICS};
+    public static final int PAGE_COUNT = TAB_TITLES.length;
+    public static final int FRAGMENT_COUNT = 4;
     private Context mContext;
 
     public BaseFragmentPagerAdapter(FragmentManager fm, Context context) {

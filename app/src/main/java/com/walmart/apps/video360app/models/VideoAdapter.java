@@ -98,27 +98,23 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+        ViewHolderVrMovie viewHolderVr=null;
         try {
             switch (viewHolder.getItemViewType()) {
                 case MOVIE_VR:
                     Log.d(TAG, "onBindViewHolder:22222 MOVIE_VR  2222222222 mContext "+mContext);
 
-                    ViewHolderVrMovie viewHolderVr = (ViewHolderVrMovie) viewHolder;
+                     viewHolderVr = (ViewHolderVrMovie) viewHolder;
                     Video video = videos.get(position);
                     viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
                     viewHolderVr.video_view.setClickable(true);
                     viewHolderVr.video_view.pauseVideo();
-                    if (viewHolderVr.video_view.callOnClick()){
-                        Log.d(TAG, " setOnClickListener onClick:#################################   position " + position);
-                        Intent intent = new Intent(mContext, VideoActivity.class);
-                        intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
-                        mContext.startActivity(intent);
-                    }
                     viewHolderVr.video_view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             int position = v.getVerticalScrollbarPosition();
-                            Log.d(TAG, " setOnClickListener onClick:#################################   position " + position);
+                            Log.d(TAG, " setOnClickListener onClick:$$$$$$   position " + position);
+                            Log.d(TAG, "onClick: inside mContext "+mContext);
                             Video video = videos.get(position);
                             Intent intent = new Intent(mContext, VideoActivity.class);
                             intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
@@ -140,6 +136,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -173,6 +170,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         // @Bind(R.id.bttn_watch_vid)
         public Button bttn_watch_vid;
 
+
         public ViewHolderVrMovie(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -186,7 +184,8 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 int position = getLayoutPosition();
                 Video video = videos.get(position);
                 Log.d(TAG, "onClick: position @@@@@@@  lllll " + position);
-                Intent intent = new Intent(mContext, VideoActivity.class);
+                Log.d(TAG, "onClick: v.getContext() "+v.getContext());
+                Intent intent = new Intent(v.getContext(), VideoActivity.class);
                 intent.putExtra(CommonUtils.MOVIE_VR, Parcels.wrap(video));
                 Log.d(TAG, "onClick: startActivity $$$$$$$$$$$$$$$$$$$$ ");
                 mContext.startActivity(intent);
