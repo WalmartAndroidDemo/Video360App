@@ -64,12 +64,14 @@ public class EntertainmentFragement extends BaseFragement{
         return inflater.inflate(R.layout.fragement_video_list, parent, false);
     }
 
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         lvVideos = (ListView) view.findViewById(R.id.lvVideos);
         lvVideos.setAdapter(adapter1);
         Toast.makeText(getActivity(), "EntertainmentFragement", Toast.LENGTH_LONG).show();
 
+        view.setBackgroundResource(R.drawable.entertianmentainment_bg);
         // Attach the listener to the AdapterView onCreate
     }
 }

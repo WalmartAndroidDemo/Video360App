@@ -71,7 +71,7 @@ public class NewsFragement extends BaseFragement {
         lvVideos = (ListView) view.findViewById(R.id.lvVideos);
         lvVideos.setAdapter(adaperTest);
         Toast.makeText(getActivity(), "NewsFragement", Toast.LENGTH_LONG).show();
-
+        view.setBackgroundResource(R.drawable.news_bg);
         // Attach the listener to the AdapterView onCreate
     }
 

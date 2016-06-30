@@ -3,16 +3,16 @@ package com.walmart.apps.video360app.adapters;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import com.walmart.apps.video360app.fragement.EntertainmentFragement;
 import com.walmart.apps.video360app.fragement.NewsFragement;
 import com.walmart.apps.video360app.fragement.PoliticsFragement;
+import com.walmart.apps.video360app.fragement.TrendingFragement;
 
 /**
  * Created by dkthaku on 6/23/16.
  */
-public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
+public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
 
     enum Position {
         Trending(0),
@@ -31,8 +31,9 @@ public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
         }
 
         public static Position fromValue(int x){
+
             if(x == 0) {
-                return Entertainment;
+                return Trending;
             }else if( x == 1) {
                 return Entertainment;
             }else if( x == 2) {
@@ -46,8 +47,9 @@ public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
 
     };
 
-    private static final int PAGE_COUNT = 3;
-    private static final String TAB_TITLES[] = new String[]{"Trending", "Fun", "News", "Politics"};
+    public static final int PAGE_COUNT = 4;
+    public static final int FRAGMENT_COUNT = 4;
+    private static final String TAB_TITLES[] = new String[]{"Trending", "Entertain", "News", "Politics"};
     private Context mContext;
 
     public BaseFragmentPagerAdapter(FragmentManager fm, Context context) {
@@ -57,13 +59,10 @@ public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        String timeline = TAB_TITLES[position];
-        //return HomeLandingFragement.newInstance(timeline, "");
-
-        Position p = Position.fromValue(position);
+        Position p = Position.fromValue(position % FRAGMENT_COUNT);
         switch (p){
             case Trending:
-                return EntertainmentFragement.newInstance();
+                return TrendingFragement.newInstance();
             case Entertainment:
                 return EntertainmentFragement.newInstance();
             case News:
@@ -79,10 +78,23 @@ public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
         return PAGE_COUNT;
     }
 
+//    @Override
+//    public CharSequence getPageTitle(int position) {
+//        // Generate title based on item position
+//        // return tabTitles[position];
+//        Drawable image = mContext.getResources().getDrawable(R.drawable.ic_action_politics);
+//        image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+//        SpannableString sb = new SpannableString(TAB_TITLES[position % FRAGMENT_COUNT]);
+//        ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+//        sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        return sb;
+//    }
+
     @Override
     public CharSequence getPageTitle(int position) {
 
-        return TAB_TITLES[position];
+        return TAB_TITLES[position % FRAGMENT_COUNT];
+//        return null;
     }
 }
 

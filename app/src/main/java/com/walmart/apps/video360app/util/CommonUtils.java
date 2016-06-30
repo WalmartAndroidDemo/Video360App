@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.format.DateUtils;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.walmart.apps.video360app.R;
+import com.walmart.apps.video360app.adapters.BaseFragmentPagerAdapter;
 import com.walmart.apps.video360app.models.Video;
 
 import org.joda.time.DateTime;
@@ -45,9 +47,9 @@ public class CommonUtils {
 
 
     public static ArrayList<Video> getDefaultMovies(){
-            ArrayList<Video>  movieList = new ArrayList<>();
-            movieList.add(new Video("https://kelley-holmes-uljc.squarespace.com/s/space_background.mp4"));
-             movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4"));
+        ArrayList<Video>  movieList = new ArrayList<>();
+        movieList.add(new Video("https://kelley-holmes-uljc.squarespace.com/s/space_background.mp4"));
+        movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4"));
         return movieList;
 
     }
@@ -73,6 +75,28 @@ public class CommonUtils {
 
     }
 
+    public static void setTabStyle(TabLayout tab){
+
+        for(int i=0;i< BaseFragmentPagerAdapter.PAGE_COUNT; i++) {
+
+            int type = i % BaseFragmentPagerAdapter.FRAGMENT_COUNT;
+
+            switch (type) {
+                case 0:
+                    tab.getTabAt(i).setIcon(R.drawable.trending_tab);
+                    break;
+                case 1:
+                    tab.getTabAt(i).setIcon(R.drawable.entertainment_tab);
+                    break;
+                case 2:
+                    tab.getTabAt(i).setIcon(R.drawable.news_tab);
+                    break;
+                case 3:
+                    tab.getTabAt(i).setIcon(R.drawable.politics_tab);
+                    break;
+            }
+        }
+    }
 
     public String getRelativeTimeAgo(String rawJsonDate) {
         String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
