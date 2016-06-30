@@ -94,18 +94,29 @@ public class CommonUtils {
         ArrayList<Video> movieList = new ArrayList<>();
         switch (movieTypes) {
             case TIMELINE_TRENDING_TAB:
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/f1e1a16a-854e-4ff6-bc94-0c55fa5d41e5/web.mp4"));
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/0d2187b9-0186-462e-b943-06da419818c5/web.mp4"));
                 movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/9256d26c-2712-446e-b1dc-f461f0478fc4/web.mp4"));
-                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4"));
+                //movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/db0d960d-5e76-4f6f-9332-14fce8952f87/web.mp4"));
 
             case TIMELINE_FUN_TAB:
                 movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/a25016a8-de5e-40bb-8b41-4557cca15965/web.mp4"));
-                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/be941812-6478-4a07-93f8-dd71f2075616/web.mp4"));
+               // movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/d82c5cf1-9197-4a38-b096-41307fdff9b4/web.mp4"));
+               // movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/d0eef638-8e8c-4940-8def-8db07ebd8b69/web.mp4"));
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/1c8b0cbc-4dcd-4c14-a0ed-7f1d5f6632ff/web2.mp4", "Dancing With the Stars 360"));
                 break;
             case TIMELINE_NEWS_TAB :
                 movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/7103e91c-e292-4993-81fc-66352ab9ce3c/web.mp4"));
+               // movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/9256d26c-2712-446e-b1dc-f461f0478fc4/web.mp4", "360 journey through Chernobyl 30 years after the worst nuclear disaster in history"));
+                //movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/9626ac69-a0bd-4fc7-86b4-cdc18089969f/web.mp4", "Project Earth: Greenland Climate Change 360"));
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/0987e3d9-3f99-4fc7-92a8-2ac1e962f714/web.mp4","Virtual guided tour of Paris"));
+
                 break;
             case TIMELINE_POLITICS_TAB :
-                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/7103e91c-e292-4993-81fc-66352ab9ce3c/web.mp4"));
+                //movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/5aff875a-32df-46fb-8f53-b92bf86bb853/web.mp4","Inside Trump America"));
+               // movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/83ef40fe-6e8e-45ed-86f8-871c89c3a60f/web.mp4", "Virtual Yellowstone 360"));
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/d2b34e83-c22c-4f86-9776-7e1afb0c0b49/web.mp4", "After twin earthquakes in Japan, ABC News"));
+                movieList.add(new Video("https://d3uo9a4kiyu5sk.cloudfront.net/production/1a38869c-bded-43aa-a9dc-5afb9fbd7742/web.mp4", "NEPAL: After The Earthquake VR"));
                 break;
 
             default:

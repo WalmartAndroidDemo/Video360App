@@ -15,6 +15,7 @@ import com.google.vr.sdk.widgets.video.VrVideoView;
 import com.walmart.apps.video360app.R;
 import com.walmart.apps.video360app.VideoActivity;
 import com.walmart.apps.video360app.util.CommonUtils;
+import com.walmart.apps.video360app.util.VideoLoader;
 
 import org.parceler.Parcels;
 
@@ -106,9 +107,10 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                      viewHolderVr = (ViewHolderVrMovie) viewHolder;
                     Video video = videos.get(position);
-                    viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
-                    viewHolderVr.video_view.setClickable(true);
-                    viewHolderVr.video_view.pauseVideo();
+                    //viewHolderVr.video_view.loadVideo(video.getUri(), videoOptions);
+                    VideoLoader.loadVideo(video.getUri(), viewHolderVr.video_view);
+//                    viewHolderVr.video_view.setClickable(true);
+//                    viewHolderVr.video_view.pauseVideo();
                     viewHolderVr.video_view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

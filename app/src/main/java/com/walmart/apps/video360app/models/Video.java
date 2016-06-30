@@ -27,12 +27,21 @@ public class Video {
     String createdAt;
     String timeFrom;
     String urlStr;
+    String title;
     Uri uri ;
 
 
     public Video(String urlStr) {
         this.urlStr = urlStr;
         this.uri = Uri.parse(urlStr);
+        Log.d(Video.class.getSimpleName(), "Video: "+this);
+
+    }
+
+    public Video(String urlStr, String title) {
+        this.urlStr = urlStr;
+        this.uri = Uri.parse(urlStr);
+        this.title=title;
         Log.d(Video.class.getSimpleName(), "Video: "+this);
 
     }
