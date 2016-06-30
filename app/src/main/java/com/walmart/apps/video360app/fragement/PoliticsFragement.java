@@ -49,7 +49,7 @@ public class PoliticsFragement extends BaseFragement{
     public static Fragment newInstance() {
 
         if(fragment == null) {
-            fragment =  new NewsFragement();
+            fragment =  new PoliticsFragement();
         }
         return fragment;
 
