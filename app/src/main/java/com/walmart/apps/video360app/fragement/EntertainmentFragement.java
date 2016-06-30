@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.walmart.apps.video360app.R;
 import com.walmart.apps.video360app.models.VideoAdapter;
 import com.walmart.apps.video360app.util.CommonUtils;
 
@@ -93,6 +94,7 @@ public class EntertainmentFragement extends BaseFragement{
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.d(TAG, "loadViewItems: onViewCreated ");
+        view.setBackgroundResource(R.drawable.entertainment_bg);
         // populateVideos(1);
     }
 
