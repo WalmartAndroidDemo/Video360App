@@ -9,6 +9,7 @@ import android.util.Log;
 import com.walmart.apps.video360app.adapters.BaseFragmentPagerAdapter;
 import com.walmart.apps.video360app.adapters.SmartFragmentStatePagerAdapter;
 import com.walmart.apps.video360app.fragement.BaseFragement;
+import com.walmart.apps.video360app.models.ZoomOutPageTransformer;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,6 +42,8 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
             // setup tab icons.
             setupTabIcons();
 
+            viewpager.setPageTransformer(true, new ZoomOutPageTransformer());
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -52,21 +55,34 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
         for(int i=0;i< BaseFragmentPagerAdapter.PAGE_COUNT; i++) {
 
             int type = i % BaseFragmentPagerAdapter.FRAGMENT_COUNT;
-
+//            RelativeLayout tab = null;
+//            tab = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.customtab, null);
+//            ImageView imageView = (ImageView)tab.findViewById(R.id.icon);
+//            TextView textView = (TextView)tab.findViewById(R.id.textView);
             switch (type) {
                 case 0:
-                    slidingTabs.getTabAt(i).setIcon(R.drawable.trending_tab);
+
+//                    imageView.setImageResource(R.drawable.ic_action_trending_icon);
+//                    textView.setText("hello 1");
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.trending_icon);
                     break;
                 case 1:
-                    slidingTabs.getTabAt(i).setIcon(R.drawable.entertainment_tab);
+//                    imageView.setImageResource(R.drawable.entertainment_icon);
+//                    textView.setText("hello 1");
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.entertainment_icon);
                     break;
                 case 2:
-                    slidingTabs.getTabAt(i).setIcon(R.drawable.news_tab);
+//                    imageView.setImageResource(R.drawable.news_icon);
+//                    textView.setText("hello 1");
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.news_icon);
                     break;
                 case 3:
-                    slidingTabs.getTabAt(i).setIcon(R.drawable.politics_tab);
+//                    imageView.setImageResource(R.drawable.politics_icon);
+//                    textView.setText("hello 1");
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.politics_icon);
                     break;
             }
+//            slidingTabs.getTabAt(i).setCustomView(tab);
         }
     }
 
