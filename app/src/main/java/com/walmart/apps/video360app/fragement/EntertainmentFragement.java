@@ -71,7 +71,7 @@ public class EntertainmentFragement extends BaseFragement{
         lvVideos.setAdapter(adapter1);
         Toast.makeText(getActivity(), "EntertainmentFragement", Toast.LENGTH_LONG).show();
 
-        view.setBackgroundResource(R.drawable.entertianmentainment_bg);
+        view.setBackgroundResource(R.drawable.entertainment_bg);
         // Attach the listener to the AdapterView onCreate
     }
 }

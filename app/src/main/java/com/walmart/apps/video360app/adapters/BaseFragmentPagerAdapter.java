@@ -49,7 +49,7 @@ public class BaseFragmentPagerAdapter extends SmartFragmentStatePagerAdapter {
 
     public static final int PAGE_COUNT = 4;
     public static final int FRAGMENT_COUNT = 4;
-    private static final String TAB_TITLES[] = new String[]{"Trending", "Entertain", "News", "Politics"};
+    private static final String TAB_TITLES[] = new String[]{"Trending", "Entertainment", "News", "Politics"};
     private Context mContext;
 
     public BaseFragmentPagerAdapter(FragmentManager fm, Context context) {
