@@ -24,13 +24,6 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
     @Bind(R.id.sliding_tabs)
     TabLayout slidingTabs;
 
-    private int[] tabIcons = {
-            R.drawable.ic_action_trending,
-            R.drawable.ic_action_entertainment,
-            R.drawable.ic_action_news,
-            R.drawable.ic_action_politics,
-    };
-
     private BaseFragmentPagerAdapter mBaseFragmentPagerAdapter;
     public SmartFragmentStatePagerAdapter mSmartFragmentStatePagerAdapter;
 
@@ -71,7 +64,7 @@ public class LandingActivity extends AppCompatActivity implements BaseFragement.
 
 //                    imageView.setImageResource(R.drawable.ic_action_trending_icon);
 //                    textView.setText("hello 1");
-                    slidingTabs.getTabAt(i).setIcon(R.drawable.ic_action_trending_icon);
+                    slidingTabs.getTabAt(i).setIcon(R.drawable.trending_icon);
                     break;
                 case 1:
 //                    imageView.setImageResource(R.drawable.entertainment_icon);
