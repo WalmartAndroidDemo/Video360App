@@ -97,7 +97,7 @@ public class TrendingFragement extends BaseFragement {
         super.onViewCreated(view, savedInstanceState);
         Log.d(TAG, "loadViewItems: onViewCreated ");
         view.setBackgroundResource(R.drawable.trending_bg);
-        populateVideos(1);
+      //  populateVideos(1);
     }
 
     @Nullable
