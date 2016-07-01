@@ -8,7 +8,7 @@
     <com.google.vr.sdk.widgets.video.VrVideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
-        android:layout_height="550dip"/>
+        android:layout_height="350dip"/>
 
     <!-- Seeking UI & progress indicator.-->
     <SeekBar
